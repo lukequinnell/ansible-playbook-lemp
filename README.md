@@ -2,10 +2,10 @@ Ansible Playbook LEMP
 =====================
 
 Creates a Virtual Box with the following installed on it:
-    - Ubuntu (latest stable release)
-    - NGINX (latest stable release)
-    - PHP5 (latest stable release)
-    - MySQL (latest stable release)
+ - Ubuntu (latest stable release)
+ - NGINX (latest stable release)
+ - PHP5 (latest stable release)
+ - MySQL (latest stable release)
 
 Please ensure you have the latest version of Vagrant installed.
 
