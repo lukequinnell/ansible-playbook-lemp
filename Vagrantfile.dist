@@ -1,0 +1,33 @@
+VAGRANTFILE_API_VERSION = '2'
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+    config.vm.provider :virtualbox do |v|
+        v.name = "default"
+        v.customize [
+            "modifyvm", :id,
+            "--name", "default",
+            "--memory", 1024,
+            "--natdnshostresolver1", "on",
+            "--cpus", 1,
+        ]
+    end
+
+    config.vm.box = "ubuntu/trusty32"
+
+    config.vm.network :private_network, ip: "192.168.33.90"
+    config.ssh.forward_agent = true
+
+    config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "playbook.yml"
+        ansible.inventory_path = "inventories/dev"
+        ansible.limit = 'all'
+        ansible.extra_vars = {
+            private_interface: "192.168.33.90",
+            hostname: "default"
+        }
+    end
+
+    config.vm.synced_folder "/path/on/host", "/path/on/guest", type: "nfs"
+    config.vm.synced_folder '.', '/vagrant', disabled: true
+end
