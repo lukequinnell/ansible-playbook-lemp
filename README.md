@@ -12,9 +12,10 @@ Please ensure you have the latest version of Vagrant installed.
 Installation
 ------------
 
-1. `git clone git@github.com:lukequinnell/ansible-playbook-lemp.git`
-2. Create `Vagrantfile` based off `Vagrantfile.dist` and change host and guest directories accordingly (line 32)
-3. Create `vars/mysql.yml` based off `vars/mysql.yml.dist` and change connection details accordingly
+1. `git clone git@github.com:lukequinnell/ansible-playbook-lemp.git`.
+2. Create `Vagrantfile` based off `Vagrantfile.dist` and change host and guest directories accordingly (line 32).
+3. Create `vars/mysql.yml` based off `vars/mysql.yml.dist` and change connection details accordingly.
+4. Change the `doc_root` value within `vars/common.yml` to the guest directories document root.
 
 Setup
 -----
