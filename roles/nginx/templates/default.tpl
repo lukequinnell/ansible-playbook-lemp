@@ -2,7 +2,7 @@ server {
     listen  80;
 
     server_name default;
-    root {{ doc_root }}
+    root {{ doc_root }};
 
     location / {
         # try to serve file directly, fallback to rewrite
